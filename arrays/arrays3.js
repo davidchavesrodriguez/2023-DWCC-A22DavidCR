@@ -3,7 +3,10 @@
 // minúsculas.
 const frase = ['isamel', 'é', 'CULTURISTA'];
 function maquetador(frase) {
-  for (let i = 0; i < frase.length(); i++) {
-    frase[i].slice(1);
+  for (let i = 0; i < frase.length; i++) {
+    console.log(
+      frase[i].toUpperCase().charAt(0) + frase[i].toLowerCase().slice(1)
+    );
   }
 }
+maquetador(frase);
