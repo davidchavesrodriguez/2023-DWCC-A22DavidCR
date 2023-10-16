@@ -47,7 +47,8 @@ for (const book of trueLibrary) {
 
 // c. Utilizando a desestruturación de obxectos, almacena na variable “firstBook” o
 // valor do título do primeiro libro.
-const { firstBook } = library.f;
+const { title } = library[0];
+//console.log(title);
 
 // d. Escribe unha instrución para converter a string o obxecto “library”.
 console.log(JSON.stringify(library));
