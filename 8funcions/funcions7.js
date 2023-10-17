@@ -4,7 +4,7 @@ letrasDni="TRWAGMYFPDXBNJZSQVHLCKE";
 let valor=0; 
 const dniCheck=(dni)=>{
     letraDni= dni.charAt(8);
-    numerosDni= dni.substring(0,7);
+    numerosDni= dni.substring(0,8);
     moduloNumeros= numerosDni % 23;
     letraCorrecta= letrasDni.charAt(moduloNumeros);
     if (letraCorrecta===letraDni) {
@@ -13,4 +13,4 @@ const dniCheck=(dni)=>{
         return "Ta mal"
     }
 };
-console.log(dniCheck("35632570G"));
+console.log(dniCheck("12345678Z"));
