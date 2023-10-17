@@ -14,30 +14,30 @@ let duracionEnMinutosRestantes;
 function axendarReunion(horaInicioReunion, duracionEnMinutos) {
     const [horaReunion, minutoReunion]= horaInicioReunion.split(":");
     if (duracionEnMinutos >= 60){
-    duracionEnHoras= Math.floor(duracionEnMinutos / 60); //Horas que dura a reunión (CONVERSIÓN IMPLÍCITA)
-    duracionEnMinutosRestantes= duracionEnMinutos % 60; //Minutos aparte das horas
+        duracionEnHoras= Math.floor(duracionEnMinutos / 60);
+        duracionEnMinutosRestantes= duracionEnMinutos % 60;
     } else {
         duracionEnHoras = 0;
         duracionEnMinutosRestantes = duracionEnMinutos;
     }
 
-    let horaFinalizacion= parseInt(horaInicioTraballo)+ duracionEnHoras;
-    let minutoFinalizacion= parseInt(minutoInicioTraballo)+ duracionEnMinutosRestantes;
+    let horaFinalizacion= parseInt(horaReunion)+ duracionEnHoras;
+    let minutoFinalizacion= parseInt(minutoReunion)+ duracionEnMinutosRestantes;
 
     if (minutoFinalizacion >= 60){
         minutoFinalizacion-=60;
         horaFinalizacion++;
     }
 
-    if (horaFinalizacion > parseInt(horaFinalTraballo) ||
-    (horaFinalizacion === parseInt(horaFinalTraballo) && minutoFinalizacion > parseInt(minutoFinalTraballo)) ||
-    horaReunion < parseInt(horaInicioTraballo) ||
-    (horaReunion === parseInt(horaInicioTraballo) && minutoReunion < parseInt(minutoInicioTraballo)) ||
-    horaReunion === horaFinalizacion && minutoReunion >= minutoFinalizacion) {
-        return false;
-    }   
-    else {
+    const inicioTraballo = parseInt(horaInicioTraballo) * 60 + parseInt(minutoInicioTraballo);
+    const finalTraballo = parseInt(horaFinalTraballo) * 60 + parseInt(minutoFinalTraballo);
+    const inicioReunion = parseInt(horaReunion) * 60 + parseInt(minutoReunion);
+    const finalReunion = horaFinalizacion * 60 + minutoFinalizacion;
+
+    if (inicioReunion >= inicioTraballo && finalReunion <= finalTraballo) {
         return true;
+    } else {
+        return false;
     }
 }
 
