@@ -15,11 +15,42 @@ const inventors = [
 ];
 // a. Filtra o array de inventores e crea un array só cos inventores que naceron no
 // século XVI.
+console.log("A- ");
+const inventoresXVI = inventors.filter((inventor) => inventor.year > 1500);
+console.log(inventoresXVI);
+
 // b. Crea un array co nome completo dos inventores. Por exemplo: ["Albert
 // Einstein", "Isaac Newton", ...]
+console.log("B- ");
+const fullName = inventors.map(
+  (inventor) => inventor.first + " " + inventor.last
+);
+console.log(fullName);
+
 // c. Unha vez obtido o array co nome completo dos inventores do exercicio
 // anterior, ordénao alfabeticamente polo apelido.
+
+//PA DESPOIS
+
 // d. Ordena alfabeticamente polo apelido o array de obxectos inventores inicial.
+console.log("D- ");
+const orderArray = inventors.sort((a, b) => a.last.localeCompare(b.last));
+console.log(orderArray);
+
 // e. Ordena o array de inventores pola data de nacemento.
+console.log("E- ");
+const orderByDate = inventors.sort((a, b) => a.year - b.year);
+console.log(orderByDate);
+
 // f. Calcula a suma dos anos que viviron todos os inventores.
+console.log("F- ");
+const sumaEdad = inventors.reduce((accum, inventor) => {
+  return accum + (inventor.passed - inrºventor.year);
+}, 0);
+console.log(sumaEdad);
+
 // g. Ordena os inventores polos anos que viviron, primeiro o máis lonxevo
+console.log("G- ");
+const orderByOld= inventors.sort((b, a)=> (a.passed-a.year) - (b.passed-b.year));
+console.log(orderByOld);
+
