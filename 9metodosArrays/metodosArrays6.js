@@ -19,3 +19,14 @@ const data = [
   "truck",
   "pogostick",
 ];
+
+const sum = data.reduce((acumm, currentVal) => {
+  if (acumm[currentVal]) {
+    acumm[currentVal] += 1;
+  } else {
+    acumm[currentVal] = 1;
+  }
+  return acumm;
+}, {});
+
+console.log(sum);

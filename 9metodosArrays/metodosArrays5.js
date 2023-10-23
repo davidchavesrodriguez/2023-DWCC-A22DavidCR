@@ -45,7 +45,7 @@ console.log(orderByDate);
 // f. Calcula a suma dos anos que viviron todos os inventores.
 console.log("F- ");
 const sumaEdad = inventors.reduce((accum, inventor) => {
-  return accum + (inventor.passed - inrºventor.year);
+  return accum + (inventor.passed - inventor.year);
 }, 0);
 console.log(sumaEdad);
 
