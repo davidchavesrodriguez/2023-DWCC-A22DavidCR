@@ -7,3 +7,35 @@
 // ii. minúsculas
 // iii. números
 // iv. caracteres especiais: ¡!$?%&#@/\()=¿?*[];,:._<>+-
+function validPassword(password) {
+  if (password.length < 8) {
+    return false;
+  }
+  if (/\s/.test(password)) {
+    return false;
+  }
+  let counter = 0;
+  if (/[A-Z]/.test(password)) {
+    counter++;
+  }
+  if (/[a-z]/.test(password)) {
+    counter++;
+  }
+  if (/[0-9]/.test(password)) {
+    counter++;
+  }
+  if (/[¡!$?%&#@/\()=¿?*[\];,:._<>+-]/.test(password)) {
+    counter++;
+  }
+  if (counter < 3) {
+    return false;
+  }
+  return true;
+}
+
+console.log(validPassword("julio"));
+console.log(validPassword("Julio guay"));
+console.log(validPassword("JulioProfe"));
+console.log(validPassword("Julio o meu compañeiro 19"));
+console.log(validPassword("Julio22?"));
+console.log(validPassword("CDam,cjkbdjhkbjhk"));
