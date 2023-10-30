@@ -11,25 +11,32 @@ function validPassword(password) {
   if (password.length < 8) {
     return false;
   }
+
   if (/\s/.test(password)) {
     return false;
   }
+
   let counter = 0;
   if (/[A-Z]/.test(password)) {
     counter++;
   }
+
   if (/[a-z]/.test(password)) {
     counter++;
   }
+
   if (/[0-9]/.test(password)) {
     counter++;
   }
+
   if (/[¡!$?%&#@/\()=¿?*[\];,:._<>+-]/.test(password)) {
     counter++;
   }
+
   if (counter < 3) {
     return false;
   }
+
   return true;
 }
 

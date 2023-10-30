@@ -13,15 +13,15 @@ let insultos = [
 // Así, por exemplo, cada vez que apareza testán nun texto,
 // debe substituírse por "t*****".
 const regInsulto =
-  /testán/gi |
-  /langrán/gi |
-  /fervellasverzas/gi |
-  /baldreo/gi |
-  /lacazán/gi |
-  /pillabán/gi;
+  /(testán|langrán|fervellasverzas|baldreo|lacazán|pillabán)/gi;
+
 const textoInsultoso =
   "O langrán de Julio non foi capaz de axudar ao fervellasverzas de Diego Rianxo";
 
-function censurarInsulto(textoInsultoso) {
-  console.log(textoInsultoso.replace(regInsulto, regInsulto));
+function susbtituirInsulto(match){
+  return match.substring(0, 1) + "*".repeat(match.length - 1);
 }
+
+let textoFinal= textoInsultoso.replace(regInsulto, susbtituirInsulto);
+
+console.log(textoFinal);

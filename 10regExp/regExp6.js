@@ -3,9 +3,9 @@
 // Crea unha función á que se lle pase un texto e devolva o
 // mesmo texto coas etiquetas HTML eliminadas.
 function clearHtml(text) {
-  const htmlTags = /<.*>/;
+  const htmlTags = /<.*?>/gi;
   console.log(text.replace(htmlTags, ""));
 }
 clearHtml(
-  "Hola, <!DOCTYPE html><html><body><h1>My First Heading</h1><p>My first paragraph.</p></body></html>Julio!"
+  "Hola, <!DOCTYPE html><html><body><h1>HEADING</h1><p>Párrafo</p></body></html>Julio!"
 );

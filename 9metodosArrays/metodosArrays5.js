@@ -16,7 +16,7 @@ const inventors = [
 // a. Filtra o array de inventores e crea un array só cos inventores que naceron no
 // século XVI.
 console.log("A- ");
-const inventoresXVI = inventors.filter((inventor) => inventor.year > 1500);
+const inventoresXVI = inventors.filter((inventor) => inventor.year > 1500 && inventor.year <=1600);
 console.log(inventoresXVI);
 
 // b. Crea un array co nome completo dos inventores. Por exemplo: ["Albert
@@ -52,5 +52,5 @@ console.log(sumaEdad);
 // g. Ordena os inventores polos anos que viviron, primeiro o máis lonxevo
 console.log("G- ");
 const orderByOld= inventors.sort((b, a)=> (a.passed-a.year) - (b.passed-b.year));
-console.log(orderByOld);
+console.table(orderByOld);
 

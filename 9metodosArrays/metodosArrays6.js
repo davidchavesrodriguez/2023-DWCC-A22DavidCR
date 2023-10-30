@@ -29,4 +29,4 @@ const sum = data.reduce((acumm, currentVal) => {
   return acumm;
 }, {});
 
-console.log(sum);
+console.table(sum);

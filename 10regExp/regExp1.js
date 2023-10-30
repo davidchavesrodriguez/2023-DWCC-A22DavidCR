@@ -1,17 +1,17 @@
 // 1. Escribe unha expresión regular para comprobar que cada un dos seguintes
 // elementos aparece nunha cadea.
 // a. car e cat
-const regA= /ca[r|t]/;
+const regA= /ca[rt]/;
 // b. pop e prop
 const regB= /pr?op/;
 // c. ferret, ferry e ferrari
-const regC= /ferr[et|y|ari]/;
+const regC= /ferr(et|y|ari)/;
 // d. Calquera palabra rematada en ious
-const regD= /ious\b/;
+const regD= /\Bious\b/;
 // e. Un espazo seguido de punto, coma, dous puntos ou punto e coma.
-const regE= / [.|,|:|;]/;
+const regE= / [.,:;]/;
 // f. Unha palabra con máis de 6 letras.
-const regF= /[a-z]{6,}/i;
+const regF= /\w{7}/i;
 // g. Unha palabra sen a letra e (ou E).
 const regG= /\b[^\We]+\b/i;
 
