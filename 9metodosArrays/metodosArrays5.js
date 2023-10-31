@@ -29,8 +29,16 @@ console.log(fullName);
 
 // c. Unha vez obtido o array co nome completo dos inventores do exercicio
 // anterior, ordénao alfabeticamente polo apelido.
+console.log("C- ");
 
-//PA DESPOIS
+fullName.sort((a, b) => {
+  const apellidoA = a.split(" ")[1]; // Obtén el segundo elemento (apellido) de la cadena
+  const apellidoB = b.split(" ")[1];
+
+  return apellidoA.localeCompare(apellidoB); // Compara los apellidos alfabéticamente
+});
+
+console.log(fullName);
 
 // d. Ordena alfabeticamente polo apelido o array de obxectos inventores inicial.
 console.log("D- ");
