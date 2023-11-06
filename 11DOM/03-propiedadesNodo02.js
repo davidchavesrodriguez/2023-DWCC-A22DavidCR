@@ -5,9 +5,7 @@ console.log(allLinks.length);
 
 // A dirección da penúltima ligazón
 console.log('B- A dirección da penúltima ligazón');
-const hrefSixthLink = document
-  .getElementsByTagName('a')[5]
-  .getAttribute('href');
+const hrefSixthLink = allLinks[allLinks.length - 2].getAttribute('href');
 console.log(hrefSixthLink);
 
 // O número de ligazóns que apuntan a http://proba
