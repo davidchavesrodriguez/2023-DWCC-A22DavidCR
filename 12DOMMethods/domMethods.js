@@ -7,6 +7,7 @@
 
 // 2. Dada unha lista <ol> con varios elementos <li>, crea o código necesario para
 // eliminar os < li > da lista.
+ol = document.getElementById('deleteThisList');
 while (ol.firstChild) {
   ol.removeChild(ol.firstChild);
 }
@@ -20,22 +21,34 @@ while (ol.firstChild) {
 
 let taboa = document.getElementById('taboa');
 taboa.remove();
-//Porque elimina o elemento tabla pero non os fillos (?)
+//Porque elimina o elemento tabla pero mantense o texto entre etiquetas.
 
 // 4. Crea un documento HTML que conteña un elemento <ul>. Dende JavaScript crea 4
 // elementos <li> e engádeos á lista <ul>, de tal forma que sexan visibles no
 // navegador.
+let ul = document.getElementById('ulForAddingLi');
+for (let i = 0; i < 4; i++) {
+  let li = document.createElement('li');
+  let randomText = 'Holaholahola';
+  li.prepend(randomText);
+  ul.prepend(li);
+}
 
-// 5. Escribe o código JavaScript para inserir “<li>2</li><li>3</li>” entre os dous <li>
-// seguintes:
-/* <table id="taboa"> Texto <tr>
-    <td>Test</td>
-  </tr>
-</table>
-<ul id="listaULExercicio5">
+// Escribe o código JavaScript para inserir “<li>2</li><li>3</li>” entre os
+// dous < li > seguintes:
+/*<ul id="listaULExercicio5">
   <li id="one">1</li>
   <li id="two">4</li>
 </ul> */
+let li2 = document.createElement('li');
+li2.textContent = '2';
+let li3 = document.createElement('li');
+li3.textContent = '3';
+
+let liTwoReference = document.getElementById('two');
+
+liTwoReference.before(li2);
+liTwoReference.before(li3);
 
 // 6. Dado un obxecto como o seguinte:
 let arbore = {
@@ -58,6 +71,17 @@ let arbore = {
 // dereita, para os datos proporcionados.
 // Para realizalo hai dúas posibilidades, aínda que sería bo que intentases as dúas
 // opcións: crear o código código HTML ou crear directamente os nodos da árbore.
+function createTree(data) {
+  let arboreUl = document.createElement('ul');
+  for (const property in data) {
+    let arboreLi = document.createElement('li');
+    arboreLi.textContent = property;
+    arboreLi.append(createTree(data[property]));
+    arboreUl.append(arboreLi);
+  }
+  return arboreUl;
+}
+document.body.append(createTree(arbore));
 
 // 7. Escribe unha función crearCalendario(elemento, ano, mes) que engada ao
 // elemento pasado como parámetro un calendario do ano e mes indicados.
@@ -65,6 +89,12 @@ let arbore = {
 // cabeceira da táboa está creada con <th>. Por exemplo, o calendario resultado de chamar á
 // función cos seguintes parámetros vese na imaxe seguinte. Observar que se aplicaron estilos CSS
 // para mellorar o aspecto.
+function crearCalendario(elemento, ano, mes) {
+  let calendarTable = document.createElement('table');
+  let calendarRow = document.createElement('tr');
+  calendarTable.append(calendarRow);
+}
+
 crearCalendario(calendario, 2022, 11);
 
 // 8. Ordena a seguinte táboa pola columna “Nome”. Escribe un código que funcione
