@@ -2,12 +2,12 @@
 // unha variable con unha cadea de texto que inclúe etiquetas HTML. ¿Cales dos
 // seguintes comandos farán exactamente o mesmo?:
 // a. elemento.append(document.createTextNode(text));  V
-// b. elemento.innerHTML = text;  V
-// c. elemento.textContent = text;
+// b. elemento.innerHTML = text;  (colle as etiquetas tamén)
+// c. elemento.textContent = text;  V
 
 // 2. Dada unha lista <ol> con varios elementos <li>, crea o código necesario para
 // eliminar os < li > da lista.
-ol = document.getElementById('deleteThisList');
+let ol = document.getElementById('deleteThisList');
 while (ol.firstChild) {
   ol.removeChild(ol.firstChild);
 }
@@ -67,7 +67,7 @@ let arbore = {
     },
   },
 };
-// Crea unha función createTree(data) que devolva unha lista ul/li coma a da imaxe da
+// 6- Crea unha función createTree(data) que devolva unha lista ul/li coma a da imaxe da
 // dereita, para os datos proporcionados.
 // Para realizalo hai dúas posibilidades, aínda que sería bo que intentases as dúas
 // opcións: crear o código código HTML ou crear directamente os nodos da árbore.
@@ -81,7 +81,7 @@ function createTree(data) {
   }
   return arboreUl;
 }
-document.body.append(createTree(arbore));
+document.body.getElementsByTagName('h3')[5].after(createTree(arbore));
 
 // 7. Escribe unha función crearCalendario(elemento, ano, mes) que engada ao
 // elemento pasado como parámetro un calendario do ano e mes indicados.
@@ -89,24 +89,48 @@ document.body.append(createTree(arbore));
 // cabeceira da táboa está creada con <th>. Por exemplo, o calendario resultado de chamar á
 // función cos seguintes parámetros vese na imaxe seguinte. Observar que se aplicaron estilos CSS
 // para mellorar o aspecto.
-function crearCalendario(elemento, ano, mes) {
-  let calendarTable = document.createElement('table');
-  let calendarRow = document.createElement('tr');
-  calendarTable.append(calendarRow);
-}
+const crearCalendario = function (selector, ano, mesIntroducido) {
+  let table = `<table id="calendario"><thead><th>L</th><th>M</th><th>Me</th><th>X</th><th>V</th><th>S</th><th>D</th></thead><tr>`;
 
-crearCalendario(calendario, 2022, 11);
+  const mes = mesIntroducido - 1;
+  let diaActual = new Date(ano, mes, 1);
+  const primerDiaSemana = diaActual.getDay();
+
+  let contador = 7 - diaActual.getDay() + 1;
+  for (let i = 0; i < primerDiaSemana - 1; i++) {
+    table += '<td></td>';
+  }
+
+  while (diaActual.getMonth() === mes) {
+    if (diaActual.getDay() === 1) {
+      table += '<tr>';
+    }
+    table += `<td>${diaActual.getDate()}</td>`;
+
+    if (diaActual.getDay() === 0) {
+      table += '</tr>';
+    }
+
+    diaActual.setDate(diaActual.getDate() + 1);
+  }
+
+  contador = 7 - diaActual.getDay() + 1;
+  for (let i = 0; i < contador; i++) {
+    table += '<td></td>';
+  }
+
+  table += '</tr></table>';
+  const elemento = document.createElement(`${selector}`);
+  elemento.innerHTML = table;
+
+  document.body.getElementsByTagName('h3')[6].after(elemento);
+};
+
+crearCalendario('div', 2024, 1);
 
 // 8. Ordena a seguinte táboa pola columna “Nome”. Escribe un código que funcione
 // independentemente do número de filas da táboa.
-{
-  /* <table id="taboa"> Texto <tr>
-    <td>Test</td>
-  </tr>
-</table>
-<ul id="listaULExercicio5">
-  <li id="one">1</li>
-  <li id="two">4</li>
+/* 
   <table id="taboaOrdenar">
     <thead>
       <tr>
@@ -133,12 +157,20 @@ crearCalendario(calendario, 2022, 11);
       </tr>
     </tbody>
   </table> */
-}
+let taboaOrdenar = document.getElementById('taboaOrdenar');
+let namesTaboaOrdenar = taboaOrdenar.querySelectorAll(
+  'tbody tr td:first-of-type'
+);
+let namesTaboaOrdenarArray = Array.prototype.slice.call(namesTaboaOrdenar);
+namesTaboaOrdenarArray.sort();
+
+document.body
+  .getElementsByTagName('h3')[7]
+  .insertAdjacentHTML('afterend', namesTaboaOrdenarArray.toString());
 
 // 9. Dada unha lista como a seguinte, escribe o código que engada o número de
 // descendentes.
-{
-  /* <ul id="listaAnimais">
+/* <ul id="listaAnimais">
   <li>
     Animals
     <ul>
@@ -180,4 +212,12 @@ crearCalendario(calendario, 2022, 11);
     </ul>
   </li>
 </ul>; */
+
+let ulAnimals = document
+  .getElementById('listaAnimais')
+  .getElementsByTagName('ul');
+
+for (const element of ulAnimals) {
+  let ulLength = element.children.length;
+  element.insertAdjacentHTML('beforebegin', `[${ulLength}]`);
 }
