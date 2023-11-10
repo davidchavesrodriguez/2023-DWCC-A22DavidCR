@@ -1,0 +1,7 @@
+.oculto {
+  visibility: hidden;
+}
+
+#ligazon {
+  visibility: visible;
+}

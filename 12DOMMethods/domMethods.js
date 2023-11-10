@@ -157,16 +157,23 @@ crearCalendario('div', 2024, 1);
       </tr>
     </tbody>
   </table> */
-let taboaOrdenar = document.getElementById('taboaOrdenar');
-let namesTaboaOrdenar = taboaOrdenar.querySelectorAll(
-  'tbody tr td:first-of-type'
-);
-let namesTaboaOrdenarArray = Array.prototype.slice.call(namesTaboaOrdenar);
-namesTaboaOrdenarArray.sort();
 
-document.body
-  .getElementsByTagName('h3')[7]
-  .insertAdjacentHTML('afterend', namesTaboaOrdenarArray.toString());
+// let taboaOrdenar = document.getElementById('taboaOrdenar');
+// let tbody = taboaOrdenar.querySelector('tbody');
+
+// let rows = Array.from(tbody.querySelectorAll('tr'));
+
+// rows.sort((a, b) => {
+//   let nomeA = a.querySelector('td:first-of-type').textContent;
+//   let nomeB = b.querySelector('td:first-of-type').textContent;
+//   return nomeA.localeCompare(nomeB);
+// });
+
+// rows.forEach((row) => tbody.appendChild(row));
+
+// document.body
+//   .getElementsByTagName('h3')[7]
+//   .insertAdjacentHTML('afterend', nomesOrdenados.toString());
 
 // 9. Dada unha lista como a seguinte, escribe o código que engada o número de
 // descendentes.
