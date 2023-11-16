@@ -3,3 +3,25 @@
 // pulsa cancelar na confirmación, non se navegará á nova páxina.
 // Utiliza un só manexador de eventos.
 // Fíxate que as ligazóns poden ter etiquetas aniñadas “<a href=".."><i>...</i></a>”
+
+let contentsElement = document.getElementById('contents');
+// let links = contentsElement.getElementsByTagName("a");
+
+contentsElement.addEventListener('click', (event) => {
+  let targetElement = event.target;
+
+  while (targetElement && targetElement.tagName !== 'A') {
+    targetElement = targetElement.parentElement;
+  }
+
+  if (targetElement) {
+    let confirmation = window.confirm(
+      'COIDADO. Esto é un enlace, queres ir aí?'
+    );
+
+    if (!confirmation) {
+      event.preventDefault();
+      window.alert('Para casiña');
+    }
+  }
+});
