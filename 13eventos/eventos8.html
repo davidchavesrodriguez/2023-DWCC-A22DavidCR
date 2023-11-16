@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulario con JavaScript</title>
+  </head>
+  <body>
+    <form id="miFormulario">
+      <!-- Input de texto -->
+      <label for="texto">Texto:</label>
+      <input type="text" id="texto" name="texto" /><br />
+
+      <!-- Select -->
+      <label for="opcion">Selecciona una opción:</label>
+      <select id="opcion" name="opcion">
+        <option value="opcion1">Opción 1</option>
+        <option value="opcion2">Opción 2</option>
+        <option value="opcion3">Opción 3</option></select
+      ><br />
+
+      <!-- Radio buttons -->
+      <label>Género:</label>
+      <input type="radio" id="masculino" name="genero" value="masculino" />
+      <label for="masculino">Masculino</label>
+      <input type="radio" id="femenino" name="genero" value="femenino" />
+      <label for="femenino">Femenino</label><br />
+
+      <!-- Checkbox -->
+      <input
+        type="checkbox"
+        id="suscripcion"
+        name="suscripcion"
+        value="suscrito"
+      />
+      <label for="suscripcion">Suscribirse</label><br />
+
+      <!-- Área de texto -->
+      <label for="comentario">Comentario:</label><br />
+      <textarea id="comentario" name="comentario" rows="4" cols="50"></textarea
+      ><br />
+
+      <!-- Botón de envío -->
+      <input type="submit" value="Enviar" />
+    </form>
+  </body>
+  <script src="./eventos8.js" defer></script>
+</html>
