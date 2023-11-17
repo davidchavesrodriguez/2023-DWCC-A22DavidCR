@@ -10,11 +10,9 @@ let contentsElement = document.getElementById('contents');
 contentsElement.addEventListener('click', (event) => {
   let targetElement = event.target;
 
-  while (targetElement && targetElement.tagName !== 'A') {
-    targetElement = targetElement.parentElement;
-  }
+  let enlaceProximo = targetElement.closest('a');
 
-  if (targetElement) {
+  if (enlaceProximo) {
     let confirmation = window.confirm(
       'COIDADO. Esto é un enlace, queres ir aí?'
     );
