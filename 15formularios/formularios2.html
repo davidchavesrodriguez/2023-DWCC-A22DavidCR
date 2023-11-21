@@ -38,6 +38,9 @@ engade ao elemento unha mensaxe de erro personalizada.
       if (email.validity.typeMismatch) {
         email.setCustomValidity('Pon un email, listo');
         email.reportValidity();
+      } else if (email.validity.tooShort) {
+        email.setCustomValidity('Ta chiquito');
+        email.reportValidity();
       } else {
         email.setCustomValidity('');
       }
