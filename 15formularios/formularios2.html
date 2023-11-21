@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Form validation: Task 3</title>
+    <style>
+      body {
+        background-color: #fff;
+        color: #333;
+        font: 1em / 1.4 Helvetica Neue, Helvetica, Arial, sans-serif;
+        padding: 1em;
+        margin: 0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <!--a. Fai que sexa obrigatorio cubrir o campo input cunha lonxitude mínima de 10
+caracteres.
+b. Engade un listener ao input de tal forma que cada vez que se modifique
+comprobe se o enderezo de correo electrónico é correcto. Se non é correcto
+engade ao elemento unha mensaxe de erro personalizada.
+-->
+  <body>
+    <form>
+      <label for="mail"
+        >I would like you to provide me with an e-mail address:</label
+      >
+      <input type="email" id="mail" name="mail" minlength="10" />
+      <button id="submitButton">Submit</button>
+    </form>
+  </body>
+  <script>
+    const email = document.getElementById('mail');
+    email.addEventListener('input', (event) => {
+      if (email.validity.typeMismatch) {
+        email.setCustomValidity('Pon un email, listo');
+        email.reportValidity();
+      } else {
+        email.setCustomValidity('');
+      }
+    });
+
+    const submitButton = document.getElementById('submitButton');
+
+    submitButton.addEventListener('mouseover', (event) => {
+      document.body.style.backgroundImage = 'url("../13eventos/image.jpg")';
+      const label = document.querySelector('label[for="mail"]');
+      if (label) {
+        label.style.color = 'white';
+      }
+    });
+    submitButton.addEventListener('mouseout', (event) => {
+      document.body.style.backgroundImage = 'none';
+      const label = document.querySelector('label[for="mail"]');
+      if (label) {
+        label.style.color = '';
+      }
+    });
+  </script>
+</html>

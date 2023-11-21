@@ -2,7 +2,7 @@
 // a. Utilizando un só manexador de eventos fai que ao pulsar sobre un nodo da
 // árbore se mostren/oculten os nodos fillos.
 document.getElementById('tree').addEventListener('click', function (event) {
-  if (event.target.tagName === 'LI') {
+  if (event.target.tagName === 'LI' && event.target.firstElementChild) {
     event.target.firstElementChild.classList.toggle('hidden');
   }
 });

@@ -19,7 +19,7 @@ formulario.addEventListener('submit', function (event) {
     const elemento = elementos[i];
 
     // Verificar si el elemento tiene un valor
-    if (elemento.value.trim() !== '') {
+    if (elemento.value !== '' && elemento.checked !== false) {
       console.log(`${elemento.name}: ${elemento.value}`);
     }
   }
