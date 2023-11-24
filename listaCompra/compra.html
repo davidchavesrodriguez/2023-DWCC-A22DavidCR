@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bring!</title>
+    <link rel="stylesheet" href="./compra.css" />
+  </head>
+  <body>
+    <div id="page">
+      <h1>Lista da compra</h1>
+      <form action="#" id="form">
+        <label for="text">Añade artículos:</label>
+        <input
+          type="text"
+          name="text"
+          id="text"
+          placeholder="Pan, agua, tomates..."
+        />
+        <button type="button" id="boton">¡Click!</button>
+      </form>
+      <h3>Debes comprar:</h3>
+      <button type="button" class="oculto" id="borraTodo">Borra TODO</button>
+      <input type="text" name="filter" id="filter" placeholder="filter" />
+      <div id="articulos"></div>
+    </div>
+  </body>
+  <script src="./compra.js" defer></script>
+</html>

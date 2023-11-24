@@ -1,0 +1,34 @@
+#page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid violet;
+  background-image: url('./img/fondoTransparente.png');
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#articulos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+#articulos div {
+  display: inline;
+  width: fit-content;
+  padding: 10px;
+  background-color: white;
+  border: 3px solid black;
+  transition: padding 1s;
+}
+
+#articulos div:hover {
+  padding: 1.5em;
+}
+
+.oculto {
+  display: none;
+}
