@@ -1,0 +1,15 @@
+body {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+div {
+  width: 10vh;
+  height: 10vh;
+  text-align: center;
+}
+
+div:nth-of-type(odd) {
+  background-color: lightblue;
+}
