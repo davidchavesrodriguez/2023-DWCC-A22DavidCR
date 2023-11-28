@@ -1,15 +1,21 @@
 body {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  margin: 0;
+  background-image: url('./images/fondo.jpg');
+  background-size: cover;
 }
 
-div {
-  width: 10vh;
-  height: 10vh;
+table {
+  border-collapse: collapse;
+  width: 65%;
+  height: 65%;
+}
+
+td {
   text-align: center;
-}
-
-div:nth-of-type(odd) {
-  background-color: lightblue;
+  border: 1px solid black;
 }
