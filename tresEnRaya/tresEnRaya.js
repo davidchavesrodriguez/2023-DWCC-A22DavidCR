@@ -1,5 +1,5 @@
 let contador = 1;
-let casillas = document.getElementsByTagName('td');
+let casillas = document.querySelectorAll('td');
 
 // Patito/Cerdito
 Array.from(casillas).forEach((casilla) => {
@@ -14,12 +14,10 @@ Array.from(casillas).forEach((casilla) => {
       event.target.style.backgroundImage = 'url("./images/cerdito.png")';
       contador++;
     }
-  });
-});
 
-// Final de xogo
-Array.from(casillas).forEach((casilla) => {
-  if (casilla[0].style.backgroundImage.includes('url("./images/patito.png")')) {
-    document.body.style.backgroundImage = 'url("./images/another-image.png")';
-  }
+    // Final de xogo
+    if (contador === 10) {
+      document.querySelector('body').style.backgroundImage = 'url("")';
+    }
+  });
 });
