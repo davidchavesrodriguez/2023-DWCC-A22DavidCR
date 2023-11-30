@@ -1,0 +1,8 @@
+body * {
+  margin: 20px;
+}
+#divTamaño {
+  background-color: #880808;
+  width: 100px;
+  height: 100px;
+}
