@@ -1,0 +1,20 @@
+body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+div {
+  border: 3px solid lightseagreen;
+  font-size: 200%;
+  font-weight: bold;
+  background-color: lightblue;
+  box-shadow: black 3px 3px 3px;
+  padding: 3%;
+}
+
+div:hover {
+  box-shadow: black 10px 10px 10px;
+  font-size: 222%;
+  cursor: pointer;
+}

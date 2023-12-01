@@ -29,4 +29,5 @@ th,
 td {
   border: 2px solid lightseagreen;
   border-collapse: collapse;
+  padding: 1.1em;
 }
