@@ -1,0 +1,12 @@
+body {
+  background-color: #ffa6a6;
+}
+
+#map {
+  width: 700px;
+  height: 700px;
+}
+
+.oculto {
+  display: none;
+}

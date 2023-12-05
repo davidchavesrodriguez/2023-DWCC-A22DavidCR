@@ -1,7 +1,9 @@
 /*Definimos mapa*/
 const map = L.map('map', {
   center: [43.36821761243483, -8.417104901448159],
-  zoom: 17,
+  // center: [Math.random() * 50, Math.random() * 50],
+
+  zoom: 18,
 });
 
 /*Definimos tiles*/
