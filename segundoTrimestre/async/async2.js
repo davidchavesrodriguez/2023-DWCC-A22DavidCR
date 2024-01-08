@@ -4,18 +4,29 @@
 // as que escollas. 
 // O outro botón debe deter o intervalo e parar o cambio de cores.
 
-let startButton= document.getElementById("start");
-let stopButton= document.getElementById("stop");
-let title= document.getElementsByTagName("h1")[0];
+let startButton = document.getElementById("start");
+        let stopButton = document.getElementById("stop");
+        let title = document.getElementById("title");
+        let intervalId;
 
+        function party() {
+            if (title.classList.contains("red")) {
+                title.classList.remove("red");
+                title.classList.add("blue");
+            } else {
+                title.classList.remove("blue");
+                title.classList.add("red");
+            }
+        }
 
-function party(){
-    if (title.classList.contains("red"){
-        
-    })
-}
+        function startParty() {
+            clearInterval(intervalId);
+            intervalId = setInterval(party, 1000);
+        }
 
-function startParty(){
-    setInterval(party, 100);
-}
-startParty()
+        function stopParty() {
+            clearInterval(intervalId);
+        }
+
+        startButton.addEventListener("click", startParty);
+        stopButton.addEventListener("click", stopParty);
