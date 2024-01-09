@@ -15,10 +15,34 @@ xhr.open(
 );
 
 xhr.responseType = "json";
+xhr.send();
 
 xhr.onload = function () {
   const gatas = xhr.response;
-  console.log(gatas);
+
+  const nombresGatas = gatas.map(gata => gata.name);
+
+  let nomeGatas = "Os nomes das gatas son ";
+    nomeGatas += nombresGatas.slice(0, -1).join(", ") + " e " + nombresGatas.slice(-1);
+
+  console.log(nomeGatas);
+
+  let totalGatiños = 0;
+  let femias = 0;
+  let machos = 0;
+
+  gatas.forEach(gata => {
+    totalGatiños += gata.kittens.length;
+    gata.kittens.forEach(gatiño => {
+      if (gatiño.gender === "f") {
+        femias++;
+      } else if (gatiño.gender === "m") {
+        machos++;
+      }
+    });
+  });
+
+  console.log(`Hai ${totalGatiños} gatiños: ${femias} femias e ${machos} machos.`);
 };
 
-xhr.send();
+
