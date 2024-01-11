@@ -37,7 +37,7 @@ xhr.onload = function () {
       if (gatiño.gender === "f") {
         femias++;
       } else if (gatiño.gender === "m") {
-        machos++;
+        machos++; 
       }
     });
   });

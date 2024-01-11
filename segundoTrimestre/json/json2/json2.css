@@ -18,6 +18,11 @@ html {
   h1 {
     font-size: 4rem;
     text-align: center;
+    transition: color 1.5s;
+  }
+
+  h1:hover, h2:hover{
+    color: white;
   }
   
   header p {
@@ -45,4 +50,25 @@ html {
     font-size: 2.5rem;
     letter-spacing: -5px;
     margin-bottom: 10px;
+    transition: color 1.5s;
+
+  }
+
+  /* Mine */
+
+  #g3 {
+    background: linear-gradient(90deg, #f598a8, #f6edb2);
+  }
+
+  p, li{
+    transition: color 1s, width 1.5s heigt 1.5s;
+  }
+
+  p:hover, li:hover{
+    font-size: 1.3em;
+    color: orangered;
+  }
+
+  img{
+    width: 250px;
   }
