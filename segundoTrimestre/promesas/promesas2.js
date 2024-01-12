@@ -13,25 +13,25 @@ function promesaNumerosa(param) {
     }
     if (param % 2 !== 0) {
       setTimeout(() => {
-        resolve("O número é impar");
+        resolve("o número é impar");
       }, 1000);
     } else {
       setTimeout(() => {
-        reject("O número é par");
+        reject("Error. O número é par");
       }, 2000);
     }
   });
 }
 
 promesaNumerosa("Isamel").then(
-  (resolve) => console.log(resolve),
+  (resolve) => console.log("Ben, " + resolve),
   (reject) => console.log(reject)
 );
 promesaNumerosa(13).then(
-  (resolve) => console.log(resolve),
+  (resolve) => console.log("Ben, " + resolve),
   (reject) => console.log(reject)
 );
 promesaNumerosa(4).then(
-  (resolve) => console.log(resolve),
+  (resolve) => console.log("Ben, " + resolve),
   (reject) => console.log(reject)
 );
