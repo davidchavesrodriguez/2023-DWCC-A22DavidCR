@@ -8,7 +8,7 @@
 // dunha persoa aleatoria.
 // Engade un botón á páxina que permita cargar os datos doutra persoa.
 
-let loginPetition = fetch("https://randomuser.me/api/?results=100");
+let loginPetition = fetch("https://randomuser.me/api");
 loginPetition
   .then((response) => response.json())
   .then((data) => {
