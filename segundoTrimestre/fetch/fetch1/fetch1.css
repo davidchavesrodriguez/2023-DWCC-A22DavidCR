@@ -1,0 +1,15 @@
+table,
+td,
+tr {
+  border: 2px solid black;
+  border-collapse: collapse;
+}
+
+table {
+  max-width: 75%;
+}
+
+td {
+  text-align: center;
+  min-width: 20%;
+}

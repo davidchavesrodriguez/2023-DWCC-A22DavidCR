@@ -14,11 +14,14 @@
 // o id indicado no formulario.
 // Isto debe suceder sen necesidade de recargar a páxina web.
 
+let body = document.getElementsByTagName("body")[0];
+let table = document.createElement("table");
+
 function getPosts() {
   let campoNumero = document.getElementById("numero");
   let valorNumero = campoNumero.value;
-  let body = document.getElementsByTagName("body")[0];
-  let table = document.createElement("table");
+  table.innerHTML = "";
+
   body.appendChild(table);
   fetch(`https://jsonplaceholder.typicode.com/users/${valorNumero}/posts`)
     .then((response) => response.json())
@@ -44,8 +47,7 @@ function getPosts() {
     );
 }
 
-let botoncito= document.getElementById("click");
-botoncito.addEventListener("click", ()=>{
-      getPosts();
-      
-})
+let botoncito = document.getElementById("click");
+botoncito.addEventListener("click", () => {
+  getPosts();
+});
