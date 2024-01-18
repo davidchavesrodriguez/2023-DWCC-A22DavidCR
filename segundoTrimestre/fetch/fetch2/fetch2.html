@@ -7,7 +7,19 @@
     <title>Fetch</title>
   </head>
   <body>
-    <div id="tasks"></div>
+    <header>
+      <h1>Task Manager</h1>
+      <input type="text" name="taskInput" id="taskInput" />
+      <button type="button">Add a new task!</button>
+    </header>
+    <main>
+      <div id="tasks" class="containerDiv">
+        <h2>To do:</h2>
+      </div>
+      <div id="doneTasks" class="containerDiv">
+        <h2>Done:</h2>
+      </div>
+    </main>
   </body>
   <script src="fetch2.js" defer></script>
 </html>

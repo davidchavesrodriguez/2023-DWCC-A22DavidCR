@@ -25,40 +25,128 @@
 // Consultar a guía da API onde se exemplifica como xestionar os posts. Neste
 // exercicio faranse as operacións equivalentes, mais con tarefas (todos).
 
+let postButton = document.getElementsByTagName("button")[0];
 let taskDiv = document.getElementById("tasks");
+let doneDiv = document.getElementById("doneTasks");
+let removeButton= document.getElementById("removeButton");
+
+//GET
 fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
   .then((response) => response.json())
   .then((json) => {
     json.forEach((task) => {
       let title = document.createElement("div");
+      let deleteButton= document.createElement("div");
+      deleteButton.innerText= "REMOVE"
+      deleteButton.classList.add("deleteButton");
       title.innerText = task.title;
       title.classList.add("task");
       title.classList.add("todo");
       title.setAttribute("id", task.id);
+      title.appendChild(deleteButton);
       taskDiv.appendChild(title);
     });
-    taskDiv.addEventListener("click", toggleClass);
-    taskDiv.addEventListener("dblclick", deleteTask);
+    taskDiv.addEventListener("click", handleTaskClick);
+    doneDiv.addEventListener("click", handleTaskClick);
+    doneDiv.addEventListener("click", toggleClass);
+    taskDiv.addEventListener("dblclick", patchTask);
+    postButton.addEventListener("click", postTask);
   });
 
+// TOGGLE DONE/TODO
 function toggleClass(event) {
   if (event.target.classList.contains("task")) {
     event.target.classList.toggle("todo");
     event.target.classList.toggle("done");
   }
+  if (
+    event.target.classList.contains("done") &&
+    event.target.tagName === "DIV"
+  ) {
+    doneDiv.appendChild(event.target);
+  }
+  if (
+    event.target.classList.contains("todo") &&
+    event.target.tagName === "DIV"
+  ) {
+    taskDiv.appendChild(event.target);
+  }
 }
 
+// DELETE
 function deleteTask(event) {
-    const taskElement = event.target.closest(".task");
-    
-    if (taskElement) {
-        const taskId = taskElement.id;
-        
-        fetch(`https://jsonplaceholder.typicode.com/todos/${taskId}`, {
-            method: "DELETE",
-        })
-        .then((response) => {
-            //borrar
-            
+  const taskElement = event.target.closest(".task");
+  if (taskElement) {
+    const taskId = taskElement.id;
+    fetch(`https://jsonplaceholder.typicode.com/todos/${taskId}`, {
+      method: "DELETE",
+    }).then((response) => {
+      taskElement.classList.add("hidden");
+      console.log(response);
+    });
+  }
+}
+
+// POST
+function postTask(event) {
+  let postField = document.getElementById("taskInput");
+  let title = document.createElement("div");
+  fetch("https://jsonplaceholder.typicode.com/posts", {
+    method: "POST",
+    body: JSON.stringify({
+      title: postField.value,
+      body: postField.value,
+      userId: 1,
+    }),
+    headers: {
+      "Content-type": "application/json; charset=UTF-8",
+    },
+  })
+    .then((response) => response.json())
+    .then((json) => {
+      let deleteButton= document.createElement("div");
+      deleteButton.innerText= "REMOVE"
+      deleteButton.setAttribute("id", "deleteButton");
+      title.innerText = postField.value;
+      title.classList.add("task");
+      title.classList.add("todo");
+      taskDiv.appendChild(title);
+      title.appendChild(deleteButton);
+    });
+}
+
+// PATCH
+function patchTask(event) {
+  const taskElement = event.target.closest(".task");
+  if (taskElement) {
+    let postField = document.getElementById("taskInput");
+    const taskId = taskElement.id;
+    fetch(`https://jsonplaceholder.typicode.com/todos/${taskId}`, {
+      method: "PUT",
+      body: JSON.stringify({
+        id: 1,
+        title: postField.value,
+        body: postField.value,
+        userId: 1,
+      }),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
     })
-}}
+      .then((response) => response.json())
+      .then((json) => {
+        taskElement.innerText = postField.value;
+      });
+  }
+}
+
+// TOGGLE/DELETE
+function handleTaskClick(event) {
+  const clickedElement = event.target;
+
+  if (clickedElement.classList.contains("deleteButton")) {
+    deleteTask(event);
+  } else if (clickedElement.classList.contains("task")) {
+    toggleClass(event);
+  }
+}

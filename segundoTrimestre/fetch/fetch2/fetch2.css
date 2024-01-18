@@ -1,25 +1,89 @@
-#tasks{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+@import url("https://fonts.googleapis.com/css2?family=Domine:wght@400..700&display=swap");
+
+* {
+  font-family: "Domine", serif;
+  background-color: whitesmoke;
 }
 
-.task{
-    display: inline;
-    text-align: center;
-    width: 20%;
-    border: 1px solid black;
-    padding: 1em;
-    margin: 1em;
+header {
+  border: 10px solid rgb(23, 147, 224);
+  border-style: double;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.done{
-    background-color: red;
+header h1 {
+  border: 10px solid rgb(255, 121, 121);
+  border-style: double;
+  border-top: none;
 }
 
-.todo{
-    background-color: lightblue;
-    
+header button {
+  margin-top: 1%;
+  margin-bottom: 3%;
 }
 
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.containerDiv {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  border: 5px solid;
+  margin: 3%;
+  border-radius: 5%;
+}
+
+#tasks {
+  border-color: rgb(255, 121, 121);
+}
+
+#doneTasks {
+  border-color: rgb(23, 147, 224);
+}
+
+.task {
+  display: inline;
+  text-align: center;
+  width: 20%;
+  border: 1px solid black;
+  padding: 1em;
+  margin: 1em;
+  box-shadow: 1px 1px 1px black;
+}
+
+.task:hover {
+  cursor: pointer;
+  font-weight: bolder;
+  box-shadow: 5px 5px 5px black;
+}
+
+.done {
+  background-color: rgb(23, 147, 224);
+  color: white;
+}
+
+.done .deleteButton {
+    color: black;
+}
+
+.todo {
+  background-color: rgb(255, 121, 121);
+}
+
+.hidden {
+  display: none;
+}
+
+.deleteButton{
+    margin-top: 10%;
+    border: 3px solid white;
+    background-color: lightgray;
+    border-radius: 15px;
+}
