@@ -49,7 +49,8 @@ fetch("https://jsonplaceholder.typicode.com/todos?_limit=10")
     taskDiv.addEventListener("click", handleTaskClick);
     doneDiv.addEventListener("click", handleTaskClick);
     doneDiv.addEventListener("click", toggleClass);
-    taskDiv.addEventListener("dblclick", patchTask);
+    taskDiv.addEventListener("contextmenu", patchTask);
+    doneDiv.addEventListener("contextmenu", patchTask);
     postButton.addEventListener("click", postTask);
   });
 
@@ -106,7 +107,7 @@ function postTask(event) {
     .then((json) => {
       let deleteButton= document.createElement("div");
       deleteButton.innerText= "REMOVE"
-      deleteButton.setAttribute("id", "deleteButton");
+      deleteButton.classList.add("deleteButton");
       title.innerText = postField.value;
       title.classList.add("task");
       title.classList.add("todo");
@@ -117,6 +118,7 @@ function postTask(event) {
 
 // PATCH
 function patchTask(event) {
+  event.preventDefault();
   const taskElement = event.target.closest(".task");
   if (taskElement) {
     let postField = document.getElementById("taskInput");
@@ -136,7 +138,14 @@ function patchTask(event) {
       .then((response) => response.json())
       .then((json) => {
         taskElement.innerText = postField.value;
+        let title= event.target.closest(".task");
+        let deleteButton= document.createElement("div");
+        deleteButton.innerText= "REMOVE"
+        deleteButton.classList.add("deleteButton");
+        title.appendChild(deleteButton);
       });
+
+
   }
 }
 
