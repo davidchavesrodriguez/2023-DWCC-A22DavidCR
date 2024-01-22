@@ -1,0 +1,29 @@
+body{
+    background-image: url("./corunha.png");
+    background-size: contain;
+}
+
+table{
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+    background-color: rgba(44, 44, 44, 0.9);
+    color: white;
+}
+
+table, td{
+    border: 2px solid white;
+    border-collapse: collapse;
+}
+
+table th, table td{
+    width: 25%;
+    padding: 3%;
+}
+
+
+tr:hover{
+    background-color: #EAA001;
+    color: black;
+    font-weight: bolder;
+}

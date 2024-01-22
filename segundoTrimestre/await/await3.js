@@ -39,7 +39,7 @@ async function obterUsuarios(arrayNomes) {
       console.log(userInfo.data);
     } catch (error) {
       console.error(
-        `Error fetching information for user ${githubUser}: ${error.message}`
+        `Error from ${githubUser}: ${error.message}`
       );
     }
   }
