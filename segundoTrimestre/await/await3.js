@@ -11,7 +11,8 @@ import { Octokit, App } from "https://esm.sh/octokit";
 // de manexo da API facéndoa máis fácil de usar.
 // ● Crear unha instancia de Octokit co token creado no primeiro paso:
 const octokit = new Octokit({
-  auth: "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",
+  // auth: "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",
+  auth: "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",
 });
 
 // ● Usar octokit.request para facer as peticións. Por exemplo,
@@ -45,5 +46,5 @@ async function obterUsuarios(arrayNomes) {
   }
 }
 
-const githubUsernames = ["user1", "user2", "user3", "user4"];
+const githubUsernames = ["davidchavesrodriguez", "a22julioaa"];
 obterUsuarios(githubUsernames);

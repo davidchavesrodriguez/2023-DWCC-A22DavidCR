@@ -1,29 +1,41 @@
-body{
-    background-image: url("./corunha.png");
-    background-size: contain;
+.hidden{
+    display: none;
 }
 
-table{
-    text-align: center;
-    width: 80%;
-    margin: 0 auto;
-    background-color: rgba(44, 44, 44, 0.9);
-    color: white;
+body {
+  background-image: url("./corunha.png");
+  background-size: contain;
 }
 
-table, td{
-    border: 2px solid white;
-    border-collapse: collapse;
+table {
+  text-align: center;
+  width: 80%;
+  margin: 0 auto;
+  background-color: rgba(44, 44, 44, 0.9);
+  color: white;
 }
 
-table th, table td{
-    width: 25%;
-    padding: 3%;
+table,
+td {
+  border: 2px solid white;
+  border-collapse: collapse;
 }
 
+table th,
+table td {
+  width: 25%;
+  padding: 3%;
+}
 
-tr:hover{
-    background-color: #EAA001;
-    color: black;
+tr:hover {
+  background-color: #eaa001;
+  color: black;
+  font-weight: bolder;
+}
+
+/* SHOW INFO */
+.trInfo{
+    color: #eaa001;
+    background-color: #d9d9d965;
     font-weight: bolder;
 }
