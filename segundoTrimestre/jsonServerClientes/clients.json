@@ -1,0 +1,61 @@
+{
+  "clients": [
+    {
+      "name": "Julio Acuña",
+      "phoneNumber": "123456789",
+      "address": "O Pino",
+      "recurrentOrder": "All Ireland Football"
+    },
+    {
+      "name": "Dalton",
+      "phoneNumber": "123498765",
+      "address": "The Ring",
+      "recurrentOrder": "Colors"
+    },
+    {
+      "name": "Diego Rianxo",
+      "phoneNumber": "000000000",
+      "address": "Taragoña",
+      "recurrentOrder": "Programming Books"
+    },
+    {
+      "name": "Isamel",
+      "phoneNumber": "111111111",
+      "address": "Olympia",
+      "recurrentOrder": "Lettuce"
+    },
+    {
+      "name": "Barista Chaves",
+      "phoneNumber": "987654321",
+      "address": "Boiro",
+      "recurrentOrder": "Coffee && Keys"
+    }
+  ],
+  "orders": [
+    {
+      "clientName": "Julio Acuña",
+      "clientPhone": "123456789",
+      "description": "Perfect for Gaelic Football"
+    },
+    {
+      "clientName": "Dalton",
+      "clientPhone": "123498765",
+      "description": "Guess he needs them"
+    },
+    {
+      "clientName": "Diego Rianxo",
+      "clientPhone": "000000000",
+      "description": "Needed to pass the JS exams"
+    },
+    {
+      "clientName": "Isamel",
+      "clientPhone": "111111111",
+      "description": "Weight loss is hard"
+    },
+    {
+      "clientName": "Barista Chaves",
+      "clientPhone": "987654321",
+      "description": "For his job and surname"
+    }
+  ]
+}
