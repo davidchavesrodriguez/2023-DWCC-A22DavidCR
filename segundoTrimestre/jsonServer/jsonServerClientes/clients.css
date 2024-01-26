@@ -1,0 +1,16 @@
+main{
+    text-align: justify;
+}
+
+main form{
+    margin: 0 auto;
+}
+
+article{
+    background-color: darkslategrey;
+    color: white;
+}
+
+article h3{
+    margin-left: 40%;
+}
