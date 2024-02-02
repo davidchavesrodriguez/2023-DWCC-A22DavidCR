@@ -1,10 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
+
+
+* {
+  font-family: 'Gowun Batang', serif;
+}
+
 body {
   background: lightsalmon;
   color: lightgoldenrodyellow;
+  text-align: center;
+}
+
+h1 {
+  display: inline-block;
+  padding: 1%;
+  border: 20px solid lightgoldenrodyellow;
+  border-style: double;
 }
 
 #map {
   position: absolute;
+  margin-left: 15%;
   width: 66%;
   height: 66%;
+}
+
+/*Buscador*/
+.main-part {
+  color: black;
 }

@@ -23,6 +23,7 @@
   },
   "description": "",
   "dependencies": {
+    "@geoapify/leaflet-address-search-plugin": "^1.0.2",
     "leaflet": "^1.9.4"
   }
 }
