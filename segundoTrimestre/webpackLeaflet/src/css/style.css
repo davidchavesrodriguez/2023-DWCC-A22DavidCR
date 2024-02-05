@@ -5,6 +5,10 @@
   font-family: 'Gowun Batang', serif;
 }
 
+.hidden{
+  display: none;
+}
+
 body {
   background: lightsalmon;
   color: lightgoldenrodyellow;
