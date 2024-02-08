@@ -1,0 +1,80 @@
+<!-- 1. Crea un formulario con, polo menos, unha caixa de texto, 
+un área de texto, múltiples checkboxes, radiobuttons e select. 
+Fai que o valor seleccionado en cada un dos campos se mostre en HTML.
+Engade un botón para resetear o formulario, de forma que os valores
+escritos/seleccionados se borren.-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Example</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      <input type="text" v-model="input" />
+      <textarea cols="30" rows="3" v-model="textArea"></textarea>
+      <div class="checkBoxes">
+        <input type="checkbox" value="Dialga" name="dialga" v-model="checked" />
+        <label for="dialga">Dialga</label>
+        <input type="checkbox" value="Palkia" name="palkia" v-model="checked" />
+        <label for="palkia">Palkia</label>
+        <input
+          type="checkbox"
+          value="Giratina"
+          name="giratina"
+          v-model="checked"
+        />
+        <label for="giratina">Giratina</label>
+      </div>
+      <div class="radioButtons">
+        <input type="radio" name="radio" id="red" value="Red" v-model="radioed"/>
+        <label for="red">Red</label>
+        <input type="radio" name="radio" id="blue" value="Blue" v-model="radioed"/>
+        <label for="blue">Blue</label>
+        <input type="radio" name="radio" value="Yellow" id="yellow" v-model="radioed"/>
+        <label for="yellow">Yellow</label>
+      </div>
+      <div class="selects">
+        <select v-model="selected">
+          <option disabled value="">Please select one</option>
+          <option value="Turtwig">Turtwig</option>
+          <option value="Chimchar">Chimchar</option>
+          <option value="Piplup">Piplup</option>
+        </select>
+      </div>
+      <div class="resultados">
+        <p>Input: {{ input }}</p>
+        <p>TextArea:{{ textArea }}</p>
+        <p>Checkbox: {{ checked }}</p>
+        <p>Radios: {{ radioed }}</p>
+        <p>Select: {{ selected }}</p>
+      </div>
+    </div>
+
+    <script type="module">
+      import { createApp } from "vue";
+      createApp({
+        data() {
+          return {
+            input: "",
+            textArea: "",
+            checked: [],
+            radioed: "",
+            selected: "",
+          };
+        },
+        methods: {},
+      }).mount("#app");
+    </script>
+  </body>
+</html>

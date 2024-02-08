@@ -1,0 +1,45 @@
+<!-- 1. Crea unha páxina web que conteña unha caixa de texto e un parágrafo que mostre
+automaticamente o texto da caixa de texto e que se actualice a medida que se
+engaden novas letras. Podes usar o evento input. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Example</title>
+    <script type="importmap">
+      {
+        "imports": {
+          "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+        }
+      }
+    </script>
+  </head>
+
+  <body>
+    <div id="app">
+      <input
+        @input="change"
+        type="text"
+      />
+      <p>{{textContent}}</p>
+    </div>
+
+    <script type="module">
+      import { createApp } from "vue";
+      createApp({
+        data() {
+          return {
+            textContent: "",
+          };
+        },
+        methods: {
+          change(event) {
+            this.textContent = event.target.value;
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>

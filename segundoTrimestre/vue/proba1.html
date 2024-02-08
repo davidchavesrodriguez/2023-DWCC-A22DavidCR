@@ -1,0 +1,79 @@
+<!-- 1. Crea unha páxina web onde se mostre:
+a. o teu nome
+b. o ano actual
+c. o ano que será despois de 5 anos
+d. unha imaxe
+e. unha caixa de texto que conteña como texto do teu nome.
+f. un contador inicializado a 0
+g. Un botón para incrementar nunha unidade o contador e outro para
+decrementalo.
+A información debe estar almacenada nun compoñente Vue e dende HTML debe
+accederse a ela. Con respecto á imaxe, a ruta está almacenada en Vue. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vue Example</title>
+  <!-- Importación del mapeo de importaciones -->
+  <script type="importmap">
+    {
+      "imports": {
+        "vue": "https://unpkg.com/vue@3/dist/vue.esm-browser.js"
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="app">
+    <!-- Mostrar el nombre -->
+    <div id="nome">Nome: {{ nome }}</div>
+    <!-- Mostrar el año -->
+    <div id="ano">Ano: {{ ano }}</div>
+    <!-- Mostrar el año incrementado en cinco -->
+    <div id="anoEnCinco">{{ ano + 5 }}</div>
+    <!-- Mostrar una imagen -->
+    <img v-bind:src="imaxe" alt="Piña" style="width: 200px;">
+    <!-- Entrada de contador -->
+    <input v-bind:value="count"><button @click="increment" id="aumentar">+1</button>
+    <button @click="decrement" id="disminuir">-1</button>
+    </input>
+  </div>
+
+  <script type="module">
+    // Importar la función createApp desde Vue
+    import { createApp } from "vue";
+    // Crear la aplicación Vue
+    createApp({
+      // Definir los datos de la aplicación
+      data() {
+        return {
+          // Nombre
+          nome: "David",
+          // Año
+          ano: 2024,
+          // URL de la imagen
+          imaxe: "https://pbs.twimg.com/media/GFwiVmgXoAENHug?format=jpg&name=4096x4096",
+          // Contador para incrementar y decrementar
+          count: 0
+        };
+      },
+      // Métodos para manipular el estado de la aplicación
+      methods: {
+        // Método para incrementar el contador
+        increment() {
+          this.count++; // Incrementar el contador
+        },
+        // Método para decrementar el contador
+        decrement() {
+          this.count--; // Decrementar el contador
+        },
+      },
+    }).mount("#app"); // Montar la aplicación en el elemento con ID "app"
+  </script>
+</body>
+
+</html>
