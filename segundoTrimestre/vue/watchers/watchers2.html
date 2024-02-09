@@ -1,0 +1,44 @@
+<!-- Crea unha páxina web con dúas caixas de texto para convertir un 
+valor  de kilómetros a metros. Cada vez que se escriba en calquera 
+das dúas caixas de texto, automaticamente mostraranse a unidade 
+equivalente na outra caixa. -->
+
+<div id="app">
+  <h1>Calculadora distancia</h1>
+  <label for="kilometros">Distancia en kilómetros:</label>
+  <input type="number" name="kilometros" v-model="kilometros" />
+  <hr />
+  <label for="millas">Distancia en millas:</label>
+  <input type="number" name="millas" v-model="millas" />
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        kilometros: 0,
+        millas: 0,
+      };
+    },
+    methods: {
+      kilometrosAMillas() {
+        return this.kilometros / 1.609344;
+      },
+      millasAKilometros() {
+        return this.millas * 1.609344;
+      },
+    },
+    watch: {
+      kilometros(newVal) {
+        this.millas = this.kilometrosAMillas().toFixed(2);
+      },
+      millas(newVal) {
+        this.kilometros = this.millasAKilometros().toFixed(2);
+      },
+    },
+  });
+
+  app.mount("#app");
+</script>
