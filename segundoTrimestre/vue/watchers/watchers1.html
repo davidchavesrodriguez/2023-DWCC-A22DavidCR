@@ -1,0 +1,48 @@
+<!-- Crea unha páxina web con dúas caixas de texto para introducir números
+a sumar e un elemento para mostrar o resultado. Cada vez que se 
+modifique unha das caixas de texto, debe actualizarse e mostrarse o 
+resultado da suma dos dous números.
+Ademais, unha vez obtido o resultado da suma, debe mostrarse tamén 
+na páxina web se o resultado é un número par ou impar. -->
+
+<div id="app">
+  <label for="sum1">Sumando 1:</label>
+  <input type="number" name="sum1" v-model="num1" />
+  <label for="sum2">Sumando 2:</label>
+  <input type="number" name="sum2" v-model="num2" />
+
+  <p>{{ total }}</p>
+  <p>Este número é {{ parImpar }}</p>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        num1: 0,
+        num2: 0,
+        total: 0,
+        parImpar: "par",
+      };
+    },
+    watch: {
+      num1() {
+        this.total = this.num1 + this.num2;
+        this.calcularParImpar();
+      },
+      num2() {
+        this.total = this.num1 + this.num2;
+        this.calcularParImpar();
+      },
+    },
+    methods:{
+        calcularParImpar(){
+            this.parImpar= this.total%2===0 ? "par" : "impar";
+        }
+    }
+  });
+
+  app.mount("#app");
+</script>
