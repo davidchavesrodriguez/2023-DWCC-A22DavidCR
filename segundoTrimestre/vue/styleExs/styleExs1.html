@@ -1,0 +1,108 @@
+<!-- Crea unha páxina web que teña un tableiro de dúas celas. 
+Define unha clase CSS que vai ser usada para aplicar estilos ás celas.
+Por exemplo, crea unha clase chamada “activa” e configúraa cunha cor 
+de fondo e un borde diferentes dos establecidos por defecto. 
+Fai que ao pulsar sobre cada cela se alterne o estilo, é dicir, 
+que se engada a clase CSS activa se non estaba asignada e viceversa.
+
+Fai unha segunda versión do mesmo exercicio, aínda que esta vez só 
+unha das dúas celas pode ter a clase “activa” CSS. 
+Configura a páxina para que ao pulsar sobre a cela que non ten a 
+clase “activa” se lle engada e se elimine da outra cela. -->
+
+<style>
+  .cell {
+    display: inline-block;
+    border: 3px solid blue;
+    width: 15%;
+    height: 10%;
+    margin: 10%;
+    transition: 1s;
+  }
+
+  .active {
+    background-color: coral;
+    border: 5px solid black;
+    width: 20%;
+    height: 20%;
+    transition: 0.5s;
+  }
+
+  .secondActive {
+    background-image: url("https://pix4free.org/assets/library/2021-01-19/originals/active.jpg");
+    background-size: cover;
+    border: 5px solid black;
+    width: 20%;
+    height: 20%;
+    transition: 0.5s;
+  }
+</style>
+
+<div id="app">
+  <div
+    class="cell first"
+    :class="{ 'active': isActiveFirst }"
+    @click="toggleFirst"
+  >
+    1
+  </div>
+  <div
+    class="cell second"
+    :class="{ 'active': isActiveSecond }"
+    @click="toggleSecond"
+  >
+    2
+  </div>
+  <hr />
+  <div
+    class="cell third"
+    :class="{ 'secondActive': isActiveThird }"
+    @click="toggleThird"
+  >
+    3
+  </div>
+  <div
+    class="cell fourth"
+    :class="{ 'secondActive': isActiveFourth }"
+    @click="toggleFourth"
+  >
+    4
+  </div>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        isActiveFirst: true,
+        isActiveSecond: false,
+        isActiveThird: true,
+        isActiveFourth: false,
+      };
+    },
+    methods: {
+      toggleFirst() {
+        this.isActiveFirst = !this.isActiveFirst;
+      },
+      toggleSecond() {
+        this.isActiveSecond = !this.isActiveSecond;
+      },
+      toggleThird() {
+        this.isActiveThird = !this.isActiveThird;
+        if (this.isActiveThird) {
+          this.isActiveFourth = false;
+        }
+      },
+      toggleFourth() {
+        this.isActiveFourth = !this.isActiveFourth;
+        if (this.isActiveFourth) {
+          this.isActiveThird = false;
+        }
+      },
+    },
+  });
+
+  app.mount("#app");
+</script>

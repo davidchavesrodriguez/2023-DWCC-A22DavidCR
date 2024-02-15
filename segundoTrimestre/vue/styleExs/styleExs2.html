@@ -1,0 +1,77 @@
+<!-- Crea unha páxina web coas seguintes condicións:
+a. Define dúas clases CSS (claseA e claseB) cos estilos que queiras 
+para aplicar a un parágrafo.
+
+b. Engade á túa páxina web unha caixa de texto e un parágrafo. 
+Configura o código para que cando unha persoa usuaria escriba “claseA”
+na caixa de texto, se aplique esta clase ao parágrafo e cando se 
+escriba “claseB” na caixa de texto se aplique esta clase ao parágrafo.
+
+c. Engade as seguintes clases CSS:
+.hidden {
+display: none;
+}
+
+.visible {
+display: block;
+}
+
+d. Engade un botón á páxina de tal forma que, usando as clases
+anteriores, alterne a visibilidade do parágrafo usado anteriormente. 
+É dicir, inicialmente o parágrafo está visible e se se pulsa o botón, 
+ocultarase. Se se volve a pulsar o botón, o parágrafo farase visible.
+
+e. Engade á páxina web unha nova caixa de texto e un novo parágrafo. 
+Usando estilos en liña, fai que cando unha persoa escriba unha cor de 
+fondo na caixa de texto, o parágrafo cambie a súa cor de fondo pola 
+indicada na caixa de texto. -->
+
+<style>
+  .claseA {
+    font-size: large;
+    font-weight: bolder;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    color: crimson;
+    background-color: antiquewhite;
+  }
+  .claseB {
+    font-size: small;
+    font-style: oblique;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    color: green;
+  }
+  .hidden {
+    display: none;
+  }
+
+  .visible {
+    display: block;
+  }
+</style>
+
+<div id="app">
+  <label for="inputText" >Pick a Class:</label>
+  <input type="text" name="inputText" id="inputText" v-model="inputValue"/>
+  <p :class=inputValue>
+    Ligar? Ah, te refieres a Gligar, Pokémon tipo tierra/volador introducido en
+    la 2ª generación. A partir de la 4ª generación evoluciona a Gliscor de noche
+    con colmillo agudo equipado. Destaca por su defensa y velocidad, y puede
+    aprender movimientos como danza espada y guillotina.
+  </p>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+  const app = Vue.createApp({
+    data() {
+      return {
+        textClass: "",
+        inputValue: "here!"
+      };
+    },
+  });
+
+  app.mount("#app");
+</script>
