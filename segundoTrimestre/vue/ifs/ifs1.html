@@ -1,0 +1,33 @@
+<!-- Crea dende JavaScript un array con tarefas, que poden 
+ser inicialmente un array de cadeas de texto. Para practicar 
+o renderizado condicional crea unha páxina web que mostre un parágrafo 
+“Non hai tarefas pendentes” se o array coa lista de tarefas
+está baleiro ou que mostre “Hai X tarefas pendentes”, 
+sendo X o número de tarefas no array. -->
+<div id="app">
+    <h1 v-if="arrayContent">
+        Hai {{arrayElements}} tarefas pendentes
+    </h1>
+    <h1 v-else>O array está vacío :(</h1>
+</div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+  const tarefas = [
+    "Estudar",
+    "Practicar 'solos'",
+    "Ver vídeo Miragaya",
+    "Subir historia Lorchos",
+  ];
+  const app = Vue.createApp({
+    data() {
+      return {
+        arrayElements: tarefas.length,
+        arrayContent: tarefas.length > 0
+      };
+    },
+  });
+
+  app.mount("#app");
+</script>

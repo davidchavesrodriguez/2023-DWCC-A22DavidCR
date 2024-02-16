@@ -1,0 +1,30 @@
+<!-- Dado un array de números almacenado en JavaScript, 
+utiliza a directiva v-for para mostrar só os números pares. -->
+
+<div id="app"></div>
+
+<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+<script>
+  function getRandomIntInclusive(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+  const arrayRandom = [
+    getRandomIntInclusive(0, 100),
+    getRandomIntInclusive(0, 100),
+    getRandomIntInclusive(0, 100),
+    getRandomIntInclusive(0, 100),
+    getRandomIntInclusive(0, 100),
+  ];
+  const app = Vue.createApp({
+    data() {
+      return {
+        message: "Hello World!",
+      };
+    },
+  });
+
+  app.mount("#app");
+</script>

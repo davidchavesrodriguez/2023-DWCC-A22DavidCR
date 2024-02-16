@@ -25,7 +25,6 @@ e. Engade á páxina web unha nova caixa de texto e un novo parágrafo.
 Usando estilos en liña, fai que cando unha persoa escriba unha cor de 
 fondo na caixa de texto, o parágrafo cambie a súa cor de fondo pola 
 indicada na caixa de texto. -->
-
 <style>
   .claseA {
     font-size: large;
@@ -34,6 +33,7 @@ indicada na caixa de texto. -->
     color: crimson;
     background-color: antiquewhite;
   }
+
   .claseB {
     font-size: small;
     font-style: oblique;
@@ -41,6 +41,7 @@ indicada na caixa de texto. -->
       "Lucida Sans", Arial, sans-serif;
     color: green;
   }
+
   .hidden {
     display: none;
   }
@@ -49,50 +50,43 @@ indicada na caixa de texto. -->
     display: block;
   }
 </style>
-
-<div id="app">
-  <label for="inputText">Elixe unha clase:</label>
-  <input type="text" name="inputText" id="inputText" v-model="inputValue" />
-  <hr />
-  <label for="inputCor">Elixe unha cor:</label>
-  <input type="text" name="inputCor" id="inputCor" v-model="inputCor" />
-  <hr />
-  <button type="button" @click="toggleVisibility">Oculta o texto</button>
-  <p
-    :class="{[inputValue]: inputValue}"
-    id="parrafo"
-    :style="{color: inputCor}"
-  >
-    Frías... Solemnes... Imbuidas de un poder que escapa a nuestra
-    comprensión... Salta a la vista que las tierras de Hisui y Sinnoh guardan un
-    parecido muy estrecho entre sí. Aquí, en el lugar que vio nacer a los
-    antiguos sinnohítas, aguardaré eternamente la llegada del elegido
-  </p>
-</div>
-
-<script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-
-<script>
-  const app = Vue.createApp({
-    data() {
-      return {
-        inputValue: "",
-        inputCor: "",
-      };
-    },
-    methods: {
-      toggleVisibility() {
-        const parrafo = document.getElementById("parrafo");
-        const boton = document.getElementsByTagName("button")[0];
-        parrafo.classList.toggle("hidden");
-        if (parrafo.classList.contains("hidden")) {
-          boton.innerText = "Amosa o texto";
-        } else {
-          boton.innerText = "Oculta o texto";
-        }
+<body>
+  <div id="app">
+    <label for="inputClase">Elixe unha clase (claseA ou claseB):</label>
+    <input type="text" name="inputClase" id="inputClase" v-model="inputClase" />
+    <hr />
+    <label for="inputCor">Elixe unha cor de fondo:</label>
+    <input type="text" name="inputCor" id="inputCor" v-model="inputCor" />
+    <hr />
+    <button type="button" @click="toggleVisibility">
+      {{ isVisible ? 'Oculta o texto' : 'Amosa o texto' }}
+    </button>
+    <p
+      :class="[inputClase, { visible: isVisible }, { hidden: !isVisible }]"
+      :style="{ backgroundColor: inputCor }"
+    >
+      Frías... Solemnes... Imbuidas de un poder que escapa a nuestra
+      comprensión... Salta a la vista que las tierras de Hisui y Sinnoh guardan
+      un parecido muy estrecho entre sí. Aquí, en el lugar que vio nacer a los
+      antiguos sinnohítas, aguardaré eternamente la llegada del elegido
+    </p>
+  </div>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          inputClase: "",
+          inputCor: "",
+          isVisible: true,
+        };
       },
-    },
-  });
-
-  app.mount("#app");
-</script>
+      methods: {
+        toggleVisibility() {
+          this.isVisible = !this.isVisible;
+        },
+      },
+    });
+    app.mount("#app");
+  </script>
+</body>
