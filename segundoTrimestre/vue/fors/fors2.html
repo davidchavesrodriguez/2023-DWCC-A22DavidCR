@@ -1,0 +1,70 @@
+<!-- Crea unha páxina web que mostre unha lista de elementos 
+(escolle ti o significado), coas seguintes funcionalidades:
+    a. Deben mostrarse os elementos en forma de lista.
+    b. Deben poder engadirse novos elementos á lista.
+    c. Deben poder eliminarse elementos da lista.
+    d. Engade tamén un botón para mostrar/ocultar a lista. 
+       Fai que o texto deste botón sexa “Mostrar lista” ou 
+       “Ocultar lista” dependendo de se a lista é visible ou non. -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Project Template</title>
+  </head>
+  <body>
+    <div id="app">
+      <label for="inputTask">Create a new task: </label>
+      <input type="text" name="inputTask" v-model="inputTask" />
+      <button type="button" @click="addTask">Add!</button>
+      <hr />
+      <label for="taskList">Task List:</label>
+      <ul name="taskList" v-show="showList">
+          <li
+          v-for="(task, index) in taskList"
+          :key="index"
+          @click="removeTask(index)"
+          >
+          {{task}}
+        </li>
+    </ul>
+    <hr>
+    <button type="button" @click="toggleList">
+      {{ showList ? 'Ocultar lista' : 'Mostrar lista' }}
+    </button>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            taskList: [
+              "Facer Push Javascript",
+              "Repasar Symfony",
+              "Acabar con Diseño",
+            ],
+            inputTask: "",
+            showList: true,
+          };
+        },
+        methods: {
+          addTask() {
+            this.taskList.push(this.inputTask);
+            this.inputTask = "";
+          },
+          removeTask(index) {
+            this.taskList.splice(index, 1);
+          },
+          toggleList() {
+            this.showList = !this.showList;
+          },
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>

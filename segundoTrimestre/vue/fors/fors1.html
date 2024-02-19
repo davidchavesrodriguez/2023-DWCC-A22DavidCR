@@ -1,7 +1,16 @@
 <!-- Dado un array de números almacenado en JavaScript, 
 utiliza a directiva v-for para mostrar só os números pares. -->
 
-<div id="app"></div>
+<div id="app">
+  <label for="completeArrayList">Array completo</label>
+  <ul name="completeArrayList">
+    <li v-for="number in arrayRandom">{{number}}</li>
+  </ul>
+  <label for="evenArrayList">Lista de números pares:</label>
+  <ul name="evenArrayList">
+    <li v-for="number in evenArray">{{number}}</li>
+  </ul>
+</div>
 
 <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -11,18 +20,24 @@ utiliza a directiva v-for para mostrar só os números pares. -->
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-  const arrayRandom = [
-    getRandomIntInclusive(0, 100),
-    getRandomIntInclusive(0, 100),
-    getRandomIntInclusive(0, 100),
-    getRandomIntInclusive(0, 100),
-    getRandomIntInclusive(0, 100),
-  ];
+
   const app = Vue.createApp({
     data() {
       return {
         message: "Hello World!",
+        arrayRandom: [
+          getRandomIntInclusive(0, 100),
+          getRandomIntInclusive(0, 100),
+          getRandomIntInclusive(0, 100),
+          getRandomIntInclusive(0, 100),
+          getRandomIntInclusive(0, 100),
+        ],
       };
+    },
+    computed: {
+      evenArray: function () {
+        return this.arrayRandom.filter((number) => number % 2 === 0);
+      },
     },
   });
 
