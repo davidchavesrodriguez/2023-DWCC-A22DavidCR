@@ -1,0 +1,10 @@
+import { createApp } from "vue";
+import App from "./App.vue";
+import FoodItem from "./components/FoodItem.vue";
+import OlaMundo from "./components/OlaMundo.vue";
+import Counter from "./components/Counter.vue";
+const app = createApp(App);
+app.component("FoodItem", FoodItem);
+app.component("OlaMundo", OlaMundo);
+app.component("Counter", Counter);
+app.mount("#app");
