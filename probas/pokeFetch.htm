@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<?php
+$url = "https://pokeapi.co/api/v2/pokemon/piplup";
+$response = file_get_contents($url);
+
+if ($response === false) {
+    echo "Error al realizar la petición.";
+} else {
+    $data = json_decode($response, true);
+    print_r($data);
+}
