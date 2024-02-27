@@ -1,6 +1,7 @@
 <script>
 import ShowData from "./components/ShowData.vue";
 import FormData from "./components/FormData.vue";
+
 export default {
     data() {
         return {
@@ -8,16 +9,23 @@ export default {
             birthYear: -54
         };
     },
-    components: { ShowData , FormData}
+    methods: {
+        handleUpdate({ newName, newBirthYear }) {
+            this.name = newName;
+            this.birthYear = newBirthYear;
+        }
+    },
+    components: {
+        ShowData,
+        FormData
+    }
 }
 </script>
 
 <template>
   <ShowData :name="name" :birthYear="birthYear"></ShowData>
   <hr>
-  <FormData></FormData>
-  
-  <img src="https://api.generated.photos/api/v1/faces?per_page=1" alt="">
+  <FormData :name="name" :birthYear="birthYear" @update="handleUpdate"></FormData>
 </template>
 
 <style></style>
