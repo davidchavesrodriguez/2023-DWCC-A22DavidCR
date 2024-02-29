@@ -36,7 +36,7 @@ export default {
   <h1>Contact List</h1>
   <div v-for="(person, index) in contacts" :key="index">
     <PropPerson :propName="person.name" :propTelephone="person.telephone" :propEmail="person.email"
-    @toggle-favorite="() => makeFavorite(index)" :favorite="person.isContactFavorite">
+      @toggle-favorite="() => makeFavorite(index)" :favorite="person.isContactFavorite">
     </PropPerson>
   </div>
 </template>
