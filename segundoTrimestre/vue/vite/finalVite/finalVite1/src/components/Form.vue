@@ -13,6 +13,9 @@
             <input type="text" class="form-control" v-model="formLink">
         </div>
         <button type="submit" class="btn btn-danger">Submit</button>
+        <teleport to="body">
+            <div v-if="showErrorMessage" class="alert alert-danger mt-3">Fields cannot be empty!</div>
+        </teleport>
     </form>
 </template>
 
@@ -22,24 +25,32 @@ export default {
         return {
             formName: "",
             formLink: "",
-            formDesc: ""
+            formDesc: "",
+            showErrorMessage: false // Added data property to control message visibility
         }
     },
     methods: {
         submitForm() {
-            const formData = {
-                formName: this.formName,
-                formLink: this.formLink,
-                formDesc: this.formDesc
-            };
-            this.$emit("formSubmitted", formData);
+            if (!this.formName || !this.formLink || !this.formDesc) {
+                // Set showErrorMessage to true when form fields are empty
+                this.showErrorMessage = true;
+            } else {
+                const formData = {
+                    formName: this.formName,
+                    formLink: this.formLink,
+                    formDesc: this.formDesc
+                };
+                this.$emit("formSubmitted", formData);
 
-            // Reset form fields
-            this.formName = "";
-            this.formDesc = "";
-            this.formLink = "";
+                // Reset form fields
+                this.formName = "";
+                this.formDesc = "";
+                this.formLink = "";
+
+                // Hide error message when form is submitted successfully
+                this.showErrorMessage = false;
+            }
         }
-
     }
 }
 </script>
