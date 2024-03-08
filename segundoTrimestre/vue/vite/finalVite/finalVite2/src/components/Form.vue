@@ -13,8 +13,6 @@
             <button class="btn btn-warning">Patch</button>
             <button class="btn btn-danger">Delete</button>
         </div>
-
-
     </form>
 </template>
 <script>
