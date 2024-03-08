@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>19</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{texto}}</h1>
+      <button type="button" @click.middle="showOnClick">Click!</button>
+      <textarea name="" id="" cols="30" rows="10" v-model="textArea"></textarea>
+      <p>{{textArea}}</p>
+
+      <textarea
+        name=""
+        id=""
+        cols="30"
+        rows="10"
+        @keydown.enter="showTextAreaEnter"
+      ></textarea>
+      <p>{{textAreaEnter}}</p>
+    </div>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            texto: "Hola",
+            textoBotón: "Son o botón do medio",
+            textArea: "",
+            textAreaEnter: "",
+          };
+        },
+        methods: {
+          showOnClick() {
+            console.log(this.textoBotón);
+          },
+          showTextAreaEnter(event) {
+            this.textAreaEnter = event.target.value;
+            event.target.value = "";
+          },
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
