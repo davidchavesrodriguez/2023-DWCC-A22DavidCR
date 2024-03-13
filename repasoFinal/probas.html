@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Project Template</title>
+  </head>
+  <body>
+    <div id="app">
+      <p>{{message}}</p>
+
+      <input type="number" v-model="numero1" />
+      <input type="number" v-model="numero2" />
+
+      <p>{{total}}</p>
+    </div>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            message: "Hola",
+            numero1: "",
+            numero2: "",
+          };
+        },
+        methods: {},
+        computed: {
+          total() {
+            return this.numero1 + this.numero2;
+          },
+          
+        },
+      });
+      app.mount("#app");
+    </script>
+  </body>
+</html>
